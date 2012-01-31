@@ -1,0 +1,147 @@
+/*
+    title: form.html Styles
+    by: Jesse Nave
+    for: Project 1
+    Action_Man-webfont provided by: http://www.fontsquirrel.com/
+*/
+
+/*-----color guide-----
+ #3c6b92: blue
+ #6acce2: light blue
+ #193742: dark blue
+ #51341a: brown
+ #F79E20: orange
+ #995522: dark orange
+ #896287: purple
+ #2c566a: teal accent
+ #e1d8b9: sand accent
+ #cb7d20: orange accent
+ #cb202a: red accent
+ #FFFFFF: white
+ #000000: black
+ #FFFF00: yellow
+ #0000FF: blue
+ #FF0000: red
+ 
+*/
+@font-face {
+    font-family: 'ACMR';
+    src: url('Action_Man-webfont.eot');
+    src: url('Action_Man-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Action_Man-webfont.woff') format('woff'),
+         url('Action_Man-webfont.ttf') format('truetype'),
+         url('Action_Man-webfont.svg#ActionManRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+h1{
+    font-family: ACMR;
+    color: blue;
+    margin: 0px 0px 5px 0px;
+    padding: 15px 5px 10px 20px;
+    width: 385px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.10, #F79E20), color-stop(0.45, white), color-stop(0.65, #F79E20));
+    background: -moz-linear-gradient(center top, rgb(247,158,30)10%, rgb(255,255,255)45%, rgb(247,158,30)65%);
+}
+
+label{
+    margin: 2px 0px 0px 0px;
+    padding: 2px 5px 2px 0px;
+    font-family: ACMR;
+    display: block;
+}
+input{
+    border: groove;
+}
+textarea{
+    border: groove;
+}
+
+
+body{
+    font-family: ACMR;
+    background: orange;
+    /*border: 3px solid #995522;*/
+}
+#contactForm{width: 400px; height:690px; overflow: scroll; border: 3px solid #995522;}
+
+#reg{margin: 15px 15px 15px 15px;}
+
+#es{margin: 5px 5px 5px 5px;}
+
+#which{
+    color: #995522;
+}
+#extra{
+    color: blue;
+}
+#links{
+    margin: 10px 5px 10px 5px;
+}
+#clear{
+    margin: 5px 5px 5px 5px;
+}
+#displayLink{
+    margin: 5px 5px 5px 5px;
+}
+#addNew{
+    margin: 5px 5px 5px 5px;
+}
+#words{
+    font-size: 15px;
+}
+#hero{
+    
+    margin: 0px 0px 0px 75px;
+}
+#canvas1{
+    margin: 0px 0px 0px 0px;
+}
+
+#je{
+    font-family: ACMR;
+    color: blue;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 95px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.10, #F79E20), color-stop(0.45, white), color-stop(0.65, #F79E20));
+    background: -moz-linear-gradient(center top, rgb(247,158,30)10%, rgb(255,255,255)45%, rgb(247,158,30)65%);
+}
+
+#button{
+    margin: 0px 0px 0px 100px;
+}
+
+#search{
+    border: groove;
+}
+
+#submita{
+    height: 30px;
+    width: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: blue;
+    padding: 2px 2px 2px 2px;
+    margin: 0px 0px 0px 20px;
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.10, #F79E20), color-stop(0.45, white), color-stop(0.65, #F79E20));
+    background: -moz-linear-gradient(center top, rgb(247,158,30)10%, rgb(255,255,255)45%, rgb(247,158,30)65%);
+
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border: 1px solid #995522;
+    -moz-box-shadow:
+        0px 1px 3px rgba(000, 000, 000, 0.5),
+        inset 0px -1px 0px rgba(255, 255, 255, 0.7);
+    -webkit-box-shadow:
+        0px 1px 3px rbga(000, 000, 000, 0.5),
+        inset 0px -1px 0px rgba(255, 255, 255, 0.7);
+    text-shadow:
+        0px -1px 1px rgba(000, 000, 000, 0.2),
+        0px 1px 0px rgba(255, 255, 255, 255, 0.3);
+}

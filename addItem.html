@@ -1,0 +1,69 @@
+<!DOCTYPE html><!doctype html>
+<!-- Simple comic book inventory app -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta description="Comic book inventory list.">
+        <meta name="author" content="SitePoint">
+        <meta keywords="comic, books, collection"/>
+        <meta name="robots" content="index, follow"/>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
+        <meta name="HandheldFriendly" content="True"/>
+        <meta name="MobileOptimized" content="320"/>
+        <link href="form.css" rel="stylesheet"/>
+        <title>COMIC BOOK INVENTORY</title>
+    </head>
+    <body id="content">
+            <h1>Comic Book Inventory</h1>
+            <aside id="links">
+                <nav><a href="#" id="clear">Clear Stored Comics</a>
+                    <a href="#" id="displayLink">Display Comics</a>
+                    <a href="addItem.html" id="addNew" style="display: none;">Add New Item</a> 
+                </nav>
+            </aside>
+            <form action="#" method="post" id="contactForm">
+                <fieldset id="reg">
+                    <legend id="which">Which Comic Book?</legend>
+                    <span>* fields are required.</span>
+                    <ul id="errors"></ul>
+                    <ul>
+                        <li><label for="title">Title</label><input type="text" id="title" onfocus="styleField();" onblur="unStyleField();"/></li>
+                        <li><label for="volume">Volume #</label><input type="text" id="volume" onfocus="styleField2();" onblur="unStyleField2();"/></li>
+                        <li><label for="comicNum">Comic #</label><input type="text" id="comicNum" onfocus="styleField3();" onblur="unStyleField3();"/></li>
+                        <li><label for="pubDate">Publication Date</label><input type="text" id="pubDate" onfocus="styleField4();" onblur="unStyleField4();"/></li>
+                    </ul>
+                    <ul id="pub">
+                            <li id="select"><label for="group">Select a publisher.</label><br /></li>
+                    </ul>
+                    <ul>
+                        <li><label for="ammount">How many?</label></li>
+                        <li><input type="range" id="slide" min="1" max="10" value="1" onchange="showValue(this.value)"/><span id="range">1</span></li><!--this slider would not work in Firefox, but shows up in Chrome-->
+                    </ul>
+                    <ul>
+                        <li><label for="favorite">Mark as Favorite?</label></li>
+                        <li><input type="checkbox" id="fav" value="Yes" class="checkbox" /></li>
+                    </ul>
+                    <ul>
+                        <li><label for="notes">Notes</label><textarea id="notes" onfocus="styleField5();" onblur="unStyleField5();"></textarea>
+                    </ul>
+                </fieldset>
+                <fieldset id="es">
+                    <legend id="extra">Extra Stuff</legend>
+                        <ul>
+                            <li><label for="penciler">Penciler</label><input type="text" id="penciler" value="unknown" onfocus="styleField6();" onblur="unStyleField6();"/></li>
+                            <li><label for="fave1">Mark as Favorite?</label></li>
+                            <li><input type="checkbox" id="fave1" value="Yes" class="checkbox" /></li>
+                            <li><label for="writer">Writer</label><input type="text" id="writer" value="unknown" onfocus="styleField7();" onblur="unStyleField7();"/></li>
+                            <li><label for="fave2">Mark as Favorite?</label></li>
+                            <li><input type="checkbox" id="fave2" value="Yes" class="checkbox"/></li>
+                        </ul>
+                        <ul>
+                            <li><label for="oPrice">Original Price USD</label><input type="text" id="oPrice" value="unknown" onfocus="styleField8();" onblur="unStyleField8();"/></li>
+                            <li><label for="cValue">Current Value USD</label><input type="text" id="cValue" value="unknown" onfocus="styleField9();" onblur="unStyleField9();"/></li>
+                        </ul>
+                </fieldset>
+                <input type="submit" id="submita" value="Save Comic"/><br />
+            </form>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>
