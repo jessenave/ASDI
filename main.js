@@ -4,6 +4,7 @@
     Mobile User Interface
     Author: Jesse Nave
 */
+
     function showValue(newValue){
         document.getElementById("range").innerHTML = newValue;
     }
@@ -292,7 +293,7 @@ window.addEventListener("DOMContentLoaded", function () {
     //Get the image for the correct category
     
     //this code breaks my app
-    //The video doesn't show where he gets the obj "group".  I have tried ever name that I used to describe my
+    //The video doesn't show where he gets the obj "group".  I have tried every name that I used to describe my
     //dropdown list, but none of them work.
     
    /* function getImage(catName, makeSublist){
