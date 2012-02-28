@@ -5,6 +5,9 @@
     Author: Jesse Nave
 */
 
+//$(document).ready(function(){
+    
+    
     function showValue(newValue){
         document.getElementById("range").innerHTML = newValue;
     }
@@ -505,4 +508,4 @@ window.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
+//});
