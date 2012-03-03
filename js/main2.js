@@ -110,23 +110,23 @@ $(document).ready(function(){
         //Object porperties contain array with the form label and input value.
         getCheckboxValue();
         var item = {};
-        item.title          = ["Title: ", $('#title').value];
-        item.volume         = ["Volume: ", $('#volume').value];
-        item.comicNum       = ["ComicNum: ", $('#comicNum').value];
-        item.pubDate        = ["PubDate: ", $('#pubDate').value];
-        item.publisher      = ["Publisher: ", $('#groups').value];
-        item.count          = ["Ammount: ", $('#slide').value];
+        item.title          = ["Title: ", $('#title').val];
+        item.volume         = ["Volume: ", $('#volume').val];
+        item.comicNum       = ["ComicNum: ", $('#comicNum').val];
+        item.pubDate        = ["PubDate: ", $('#pubDate').val];
+        item.publisher      = ["Publisher: ", $('#groups').val];
+        item.count          = ["Ammount: ", $('#slide').val];
         
         item.comicFave      = ["Is a Favorite: ", comicFaveValue];
-        item.notes          = ["Notes: ", $('#notes').value];
-        item.penciler       = ["Penciler: ", $('#penciler').value];
+        item.notes          = ["Notes: ", $('#notes').val];
+        item.penciler       = ["Penciler: ", $('#penciler').val];
         
         item.pencilFave     = ["Favorite Artist:", pencilFaveValue];
-        item.writer         = ["Writer: ", $('#writer').value];
+        item.writer         = ["Writer: ", $('#writer').val];
         
         item.writerFave     = ["Favorite Writer:", writerFaveValue];
-        item.oPrice         = ["OriginalPrice: ", $('#oPrice').value];
-        item.cValue         = ["CurrentValue: ", $('#cValue').value];
+        item.oPrice         = ["OriginalPrice: ", $('#oPrice').val];
+        item.cValue         = ["CurrentValue: ", $('#cValue').val];
         //save data into local storage: using stringivy to convert object into a string
         localStorage.setItem(id, JSON.stringify(item));
         alert("Comic Saved!");
@@ -245,23 +245,23 @@ $(document).ready(function(){
         toggleControls("off");
         
         //populate form fields with current local storage values
-        $('#title').value = item.title[1];
-        $('#volume').value = item.volume[1];
-        $('#comicNum').value = item.comicNum[1];
-        $('#pubDate').value = item.pubDate[1];
-        $('#groups').value = item.publisher[1];
-        $('#count').value = item.count[1];
+        $('#title').val = item.title[1];
+        $('#volume').val = item.volume[1];
+        $('#comicNum').val = item.comicNum[1];
+        $('#pubDate').val = item.pubDate[1];
+        $('#groups').val = item.publisher[1];
+        $('#count').val = item.count[1];
         
-        $('#comicFave').value = item.comicFave[1];
-        $('#notes').value = item.notes[1];
-        $('#penciler').value = item.penciler[1];
+        $('#comicFave').val = item.comicFave[1];
+        $('#notes').val = item.notes[1];
+        $('#penciler').val = item.penciler[1];
         
-        $('#pencilFave').value = item.pencilFave[1];
-        $('#writer').value = item.group[1];
+        $('#pencilFave').val = item.pencilFave[1];
+        $('#writer').val = item.group[1];
         
-        $('#writerFave').value = item.writerFave[1];
-        $('#oPrice').value = item.oPrice[1];
-        $('#cValue').value = item.cValue[1];
+        $('#writerFave').val = item.writerFave[1];
+        $('#oPrice').val = item.oPrice[1];
+        $('#cValue').val = item.cValue[1];
         
         if(item.comicFave[1] == "Yes"){
             $('#comicFave').setAttribute("checked", "checked");
@@ -275,7 +275,7 @@ $(document).ready(function(){
         //Remove listener from the save button
         save.removeEventListener("click", storeData);
         //change submit button value to say "Edit Button"
-        $('#submita').value = "Edit Comic";
+        $('#submita').val = "Edit Comic";
         var editSubmit = $('#submita');
         //save the key value from this function as a property of the editSubmit event
         //so we can use that value to save the data that we edited
