@@ -186,7 +186,14 @@ $(document).ready(function(){
   
     }
    */    
-
+    $.ajax({
+        url: "xhr/comics.php",
+        type: "GET",
+        dataType: "json",
+        success: function(result){
+                console.log(result);    
+            }
+        });
     
     //Make Item links function
     //Create Edit and Delet links for each stored item when displayed
