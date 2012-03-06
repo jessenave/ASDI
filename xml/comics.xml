@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comic>
+    <title>Default Comic</title>
+    <volume>1</volume>
+    <issue>100</issue>
+    <pubdate>05/24/71</pubdate>
+    <publisher>other</publisher>
+    <ammount>1</ammount>
+    <favorite>Yes</favorite>
+    <notes>This is the default comic book.</notes>
+</comic>
