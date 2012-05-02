@@ -153,10 +153,10 @@ $(document).ready(function () {
     function makeCats(){
         var formTag = $("form"),//formTag is an array of all the form tags. (because we used getElementsByTagName (plural))
             selectLi = $("#select"),
-            makeSelect = $.('<select></select>');       // $('<select></select>')
+            makeSelect = $('<select></select>');       // $('<select></select>')
             makeSelect.attr("id", "groups");    // makeSelect.attr("id", "groups");
         for(var i = 0, j = contactGroups.length; i<j; i++){
-            var makeOption = $.create("option");
+            var makeOption = $("<option></option>");
             var optText = contactGroups[i];
             makeOption.attr("value", optText);
             makeOption.html = optText;  // .html
@@ -177,18 +177,18 @@ $(document).ready(function () {
 */
     
     function getCheckboxValue(){
-        if($("#fav").checked){   // $("#fav").checked
-            comicFaveValue = $("#fav").value;
+        if($("#fav").checked){   /*$("#fav").checked*/
+            var comicFaveValue = $("#fav").value;
         }else{
             comicFaveValue = "No";
         }
         if($("#fave1").checked){
-            pencilFaveValue = $("#fave1").value;
+            var pencilFaveValue = $("#fave1").value;
         }else{
             pencilFaveValue = "No";
         }
         if($("#fave2").checked){
-            writerFaveValue = $("#fave2").value;
+            var writerFaveValue = $("#fave2").value;
         }else{
             writerFaveValue = "No";
         }
@@ -262,25 +262,25 @@ $(document).ready(function () {
             alert("No comics saved yet, so default data was added.");
         }
         //write data from local storage to browser
-        var makeDiv = $.create('div');
+        var makeDiv = $('<div></div>');
         makeDiv.attr("id", "items");
         var makeList = $.create('ul');
         makeDiv.append(makeList);
         $.body.append(makeDiv);
         $('#items').style.display = "block";
         for(var i = 0, len=localStorage.length; i<len; i++){
-            var makeli = $.create("li");
-            var linksLi = $.create("li");
+            var makeli = $("<li></li>");
+            var linksLi = $("<li></li>");
             makeList.append(makeli);
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
             //convert the string from local storage value back to an object by using JSON.parse
             var obj = JSON.parse(value);
-            var makeSublist = $.create('ul');
+            var makeSublist = $('<ul></ul>');
             makeli.append(makeSublist);
             //getImage(obj.groups[1], makeSublist);
             for(var n in obj){
-                var makeSubli = $.create("li");
+                var makeSubli = $("<li></li>");
                 makeSublist.append(makeSubli);
                 var optSubText = obj[n][0] + " " + obj[n] [1];
                 makeSubli.html = optSubText;
@@ -334,16 +334,16 @@ $(document).ready(function () {
     function makeItemLinks(key, linksLi){
         
         //add edit single item link.
-        var editLink = $.create('a');
+        var editLink = $('<a></a>');
         editLink.href = "#";
         editLink.key = key;
         var editText = "Edit Comic";
-        editLink.addEventListener("click", editItem);
-        editLink.innerHTML = editText;
+        $(editLink).bind(editItem);
+        editLink.html = editText;
         linksLi.append(editLink);
         
         //add line break
-        var breakTag = $.create('br');
+        var breakTag = $('<br><br>');
         linksLi.append(breakTag);
         
         //add delete single item link
@@ -351,7 +351,7 @@ $(document).ready(function () {
         deleteLink.href = "#";
         deleteLink.key = key;
         var deleteText = "Delete Comic";
-        deleteLink.addEventListener("click", deleteItem);
+        $(deleteLink).bind(deleteItem);
         deleteLink.html = deleteText;
         linksLi.append(deleteLink);
          
