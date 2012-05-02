@@ -177,7 +177,7 @@ $(document).ready(function () {
 */
     
     function getCheckboxValue(){
-        if($("#fav").checked){   /*$("#fav").checked*/
+        if($("#fav").checked){   // $("#fav").checked //
             var comicFaveValue = $("#fav").value;
         }else{
             comicFaveValue = "No";
@@ -497,11 +497,11 @@ $(document).ready(function () {
     
     //Set Link & Submit Click Events
     var displayLink = $('#displayLink');
-    displayLink.addEventListener("click", getData);
+    $(displayLink).bind(getData);
     var clearLink = $("#clear");
-    clearLink.addEventListener("click", clearLocal);
+    $(clearLink).bind(clearLocal);
     var save = $("#submita");
-    save.addEventListener("click", storeData);
+    $(save).bind(storeData);
     
 
 });
