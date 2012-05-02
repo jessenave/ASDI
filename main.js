@@ -231,7 +231,7 @@ $(document).ready(function () {
         //Object properties contain array with the form label and input value.
         getCheckboxValue();
         var item = {};
-        item.title          = ["Title: ", $('#title').value];
+        item.title          = ["Title: ", $('#title').value]; //
         item.volume         = ["Volume: ", $('#volume').value];
         item.comicNum       = ["ComicNum: ", $('#comicNum').value];
         item.pubDate        = ["PubDate: ", $('#pubDate').value];
