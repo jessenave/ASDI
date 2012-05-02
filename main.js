@@ -153,16 +153,16 @@ $(document).ready(function () {
     function makeCats(){
         var formTag = $("form"),//formTag is an array of all the form tags. (because we used getElementsByTagName (plural))
             selectLi = $("#select"),
-            makeSelect = $.create('select');       // $('<select></select>')
-            makeSelect.setAttribute("id", "groups");    // makeSelect.attr("id", "groups");
+            makeSelect = $.('<select></select>');       // $('<select></select>')
+            makeSelect.attr("id", "groups");    // makeSelect.attr("id", "groups");
         for(var i = 0, j = contactGroups.length; i<j; i++){
             var makeOption = $.create("option");
             var optText = contactGroups[i];
-            makeOption.setAttribute("value", optText);
-            makeOption.innerHTML = optText;  // .html
-            makeSelect.appendChild(makeOption);    // .append
+            makeOption.attr("value", optText);
+            makeOption.html = optText;  // .html
+            makeSelect.append(makeOption);    // .append
         }
-        selectLi.appendChild(makeSelect);
+        selectLi.append(makeSelect);
     }
     
     //find value of selected radio button
@@ -263,28 +263,28 @@ $(document).ready(function () {
         }
         //write data from local storage to browser
         var makeDiv = $.create('div');
-        makeDiv.setAttribute("id", "items");
+        makeDiv.attr("id", "items");
         var makeList = $.create('ul');
-        makeDiv.appendChild(makeList);
-        document.body.appendChild(makeDiv);
+        makeDiv.append(makeList);
+        $.body.append(makeDiv);
         $('#items').style.display = "block";
         for(var i = 0, len=localStorage.length; i<len; i++){
             var makeli = $.create("li");
             var linksLi = $.create("li");
-            makeList.appendChild(makeli);
+            makeList.append(makeli);
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
             //convert the string from local storage value back to an object by using JSON.parse
             var obj = JSON.parse(value);
             var makeSublist = $.create('ul');
-            makeli.appendChild(makeSublist);
+            makeli.append(makeSublist);
             //getImage(obj.groups[1], makeSublist);
             for(var n in obj){
                 var makeSubli = $.create("li");
-                makeSublist.appendChild(makeSubli);
+                makeSublist.append(makeSubli);
                 var optSubText = obj[n][0] + " " + obj[n] [1];
-                makeSubli.innerHTML = optSubText;
-                makeSublist.appendChild(linksLi);
+                makeSubli.html = optSubText;
+                makeSublist.append(linksLi);
             }
             makeItemLinks(localStorage.key(i), linksLi);//Create our edit and delete buttons/link for each item in local storage.
         }
@@ -340,11 +340,11 @@ $(document).ready(function () {
         var editText = "Edit Comic";
         editLink.addEventListener("click", editItem);
         editLink.innerHTML = editText;
-        linksLi.appendChild(editLink);
+        linksLi.append(editLink);
         
         //add line break
         var breakTag = $.create('br');
-        linksLi.appendChild(breakTag);
+        linksLi.append(breakTag);
         
         //add delete single item link
         var deleteLink = $.create('a');
@@ -352,8 +352,8 @@ $(document).ready(function () {
         deleteLink.key = key;
         var deleteText = "Delete Comic";
         deleteLink.addEventListener("click", deleteItem);
-        deleteLink.innerHTML = deleteText;
-        linksLi.appendChild(deleteLink);
+        deleteLink.html = deleteText;
+        linksLi.append(deleteLink);
          
     }
     
@@ -385,13 +385,13 @@ $(document).ready(function () {
         $('#cValue').value = item.cValue[1];
         
         if(item.comicFave[1] == "Yes"){
-            $('#comicFave').setAttribute("checked", "checked");
+            $('#comicFave').attr("checked", "checked");
         }
         if(item.pencilFave[1] == "Yes"){
-            $('#pencilFave').setAttribute("checked", "checked");
+            $('#pencilFave').attr("checked", "checked");
         }
         if(item.writerFave[1] == "Yes"){
-            $('#writerFave').setAttribute("checked", "checked");
+            $('#writerFave').attr("checked", "checked");
         }
         //Remove listener from the save button
         save.removeEventListener("click", storeData);
@@ -437,7 +437,7 @@ $(document).ready(function () {
         var getPublisher = $('#publisher');
         
         //reset the error messages
-        errMsg.innerHTML = "";
+        errMsg.html = "";
         getTitle.style.border = "1px solid black";
         getVolume.style.border = "1px solid black";
         getComicNum.style.border = "1px solid black";
@@ -476,8 +476,8 @@ $(document).ready(function () {
         if(messageAry.length >= 1){
             for(var i = 0, j = messageAry.length; i < j; i++){
                 var txt = $.create('li');
-                txt.innerHTML = messageAry[i];
-                errMsg.appendChild(txt);
+                txt.html = messageAry[i];
+                errMsg.append(txt);
             }
             
         }
