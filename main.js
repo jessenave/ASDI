@@ -4,6 +4,8 @@
     Mobile User Interface
     Author: Jesse Nave
 */
+
+/*
     function showValue(newValue){
         document.getElementById("range").innerHTML = newValue;
     }
@@ -123,42 +125,42 @@
         field.style.backgroundColor = "#fff";
     }
     
-
+*/
 
 //Wait until the DOM is ready.
-window.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function () {
     
-        function drawImage(){
-        var can = document.getElementById("canvas1");
-        
-        if(can && can.getContext){
-            var drw = can.getContext("2d");
-            if(drw){
-                var img1 = document.getElementById("hero");
-                drw.drawImage(img1, 0,0);
-            }
-        }
-    }
+//        function drawImage(){
+//        var can = $("#canvas1");
+//
+//        if(can && can.getContext){
+//            var drw = can.getContext("2d");
+//            if(drw){
+//                var img1 = $("#hero");
+//                drw.drawImage(img1, 0,0);
+//            }
+//        }
+//    }
 
     
     //getElementById Function
-    function $(x){
+    function getId(x){
     var theElement = document.getElementById(x);
     return theElement;
     }
     
     //Create select field element and populate with options
     function makeCats(){
-        var formTag = document.getElementsByTagName("form"),//formTag is an array of all the form tags. (because we used getElementsByTagName (plural))
-            selectLi = $("select"),
-            makeSelect = document.createElement('select');
-            makeSelect.setAttribute("id", "groups");
+        var formTag = $("form"),//formTag is an array of all the form tags. (because we used getElementsByTagName (plural))
+            selectLi = $("#select"),
+            makeSelect = $.create('select');       // $('<select></select>')
+            makeSelect.setAttribute("id", "groups");    // makeSelect.attr("id", "groups");
         for(var i = 0, j = contactGroups.length; i<j; i++){
-            var makeOption = document.createElement("option");
+            var makeOption = $.create("option");
             var optText = contactGroups[i];
             makeOption.setAttribute("value", optText);
-            makeOption.innerHTML = optText;
-            makeSelect.appendChild(makeOption);
+            makeOption.innerHTML = optText;  // .html
+            makeSelect.appendChild(makeOption);    // .append
         }
         selectLi.appendChild(makeSelect);
     }
@@ -175,18 +177,18 @@ window.addEventListener("DOMContentLoaded", function () {
 */
     
     function getCheckboxValue(){
-        if($("fav").checked){
-            comicFaveValue = $("fav").value;
+        if($("#fav").checked){   // $("#fav").checked
+            comicFaveValue = $("#fav").value;
         }else{
             comicFaveValue = "No";
         }
-        if($("fave1").checked){
-            pencilFaveValue = $("fave1").value;
+        if($("#fave1").checked){
+            pencilFaveValue = $("#fave1").value;
         }else{
             pencilFaveValue = "No";
         }
-        if($("fave2").checked){
-            writerFaveValue = $("fave2").value;
+        if($("#fave2").checked){
+            writerFaveValue = $("#fave2").value;
         }else{
             writerFaveValue = "No";
         }
@@ -195,18 +197,18 @@ window.addEventListener("DOMContentLoaded", function () {
     function toggleControls(n){
         switch(n){
             case "on":
-                $('contactForm').style.display = "none";
-                $('clear').style.display = "inline";
-                $('displayLink').style.display = "none";
-                $('addNew').style.display = "inline";
+                $('#contactForm').style.display = "none";
+                $('#clear').style.display = "inline";
+                $('#displayLink').style.display = "none";
+                $('#addNew').style.display = "inline";
                 break;
             
             case "off":
-                $('contactForm').style.display = "block";
-                $('clear').style.display = "inline";
-                $('displayLink').style.display = "inline";
-                $('addNew').style.display = "none";
-                $('items').style.display = "none";
+                $('#contactForm').style.display = "block";
+                $('#clear').style.display = "inline";
+                $('#displayLink').style.display = "inline";
+                $('#addNew').style.display = "none";
+                $('#items').style.display = "none";
                 break;
             
             default:
@@ -226,27 +228,27 @@ window.addEventListener("DOMContentLoaded", function () {
             id = key;
         }
         //Gather up all our form field values and store them in an object.
-        //Object porperties contain array with the form label and input value.
+        //Object properties contain array with the form label and input value.
         getCheckboxValue();
         var item = {};
-        item.title          = ["Title: ", $('title').value];
-        item.volume         = ["Volume: ", $('volume').value];
-        item.comicNum       = ["ComicNum: ", $('comicNum').value];
-        item.pubDate        = ["PubDate: ", $('pubDate').value];
-        item.publisher      = ["Publisher: ", $('groups').value];
-        item.count          = ["Ammount: ", $('slide').value];
+        item.title          = ["Title: ", $('#title').value];
+        item.volume         = ["Volume: ", $('#volume').value];
+        item.comicNum       = ["ComicNum: ", $('#comicNum').value];
+        item.pubDate        = ["PubDate: ", $('#pubDate').value];
+        item.publisher      = ["Publisher: ", $('#groups').value];
+        item.count          = ["Ammount: ", $('#slide').value];
         
         item.comicFave      = ["Is a Favorite: ", comicFaveValue];
-        item.notes          = ["Notes: ", $('notes').value];
-        item.penciler       = ["Penciler: ", $('penciler').value];
+        item.notes          = ["Notes: ", $('#notes').value];
+        item.penciler       = ["Penciler: ", $('#penciler').value];
         
         item.pencilFave     = ["Favorite Artist:", pencilFaveValue];
-        item.writer         = ["Writer: ", $('writer').value];
+        item.writer         = ["Writer: ", $('#writer').value];
         
         item.writerFave     = ["Favorite Writer:", writerFaveValue];
-        item.oPrice         = ["OriginalPrice: ", $('oPrice').value];
-        item.cValue         = ["CurrentValue: ", $('cValue').value];
-        //save data into local storage: using stringivy to convert object into a string
+        item.oPrice         = ["OriginalPrice: ", $('#oPrice').value];
+        item.cValue         = ["CurrentValue: ", $('#cValue').value];
+        //save data into local storage: using stringify to convert object into a string
         localStorage.setItem(id, JSON.stringify(item));
         alert("Comic Saved!");
     }
@@ -260,25 +262,25 @@ window.addEventListener("DOMContentLoaded", function () {
             alert("No comics saved yet, so default data was added.");
         }
         //write data from local storage to browser
-        var makeDiv = document.createElement('div');
+        var makeDiv = $.create('div');
         makeDiv.setAttribute("id", "items");
-        var makeList = document.createElement('ul');
+        var makeList = $.create('ul');
         makeDiv.appendChild(makeList);
         document.body.appendChild(makeDiv);
-        $('items').style.display = "block";
+        $('#items').style.display = "block";
         for(var i = 0, len=localStorage.length; i<len; i++){
-            var makeli = document.createElement("li");
-            var linksLi = document.createElement("li");
+            var makeli = $.create("li");
+            var linksLi = $.create("li");
             makeList.appendChild(makeli);
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
             //convert the string from local storage value back to an object by using JSON.parse
             var obj = JSON.parse(value);
-            var makeSublist = document.createElement('ul');
+            var makeSublist = $.create('ul');
             makeli.appendChild(makeSublist);
             //getImage(obj.groups[1], makeSublist);
             for(var n in obj){
-                var makeSubli = document.createElement("li");
+                var makeSubli = $.create("li");
                 makeSublist.appendChild(makeSubli);
                 var optSubText = obj[n][0] + " " + obj[n] [1];
                 makeSubli.innerHTML = optSubText;
@@ -332,7 +334,7 @@ window.addEventListener("DOMContentLoaded", function () {
     function makeItemLinks(key, linksLi){
         
         //add edit single item link.
-        var editLink = document.createElement('a');
+        var editLink = $.create('a');
         editLink.href = "#";
         editLink.key = key;
         var editText = "Edit Comic";
@@ -341,11 +343,11 @@ window.addEventListener("DOMContentLoaded", function () {
         linksLi.appendChild(editLink);
         
         //add line break
-        var breakTag = document.createElement('br');
+        var breakTag = $.create('br');
         linksLi.appendChild(breakTag);
         
         //add delete single item link
-        var deleteLink = document.createElement('a');
+        var deleteLink = $.create('a');
         deleteLink.href = "#";
         deleteLink.key = key;
         var deleteText = "Delete Comic";
@@ -364,38 +366,38 @@ window.addEventListener("DOMContentLoaded", function () {
         toggleControls("off");
         
         //populate form fields with current local storage values
-        $('title').value = item.title[1];
-        $('volume').value = item.volume[1];
-        $('comicNum').value = item.comicNum[1];
-        $('pubDate').value = item.pubDate[1];
-        $('groups').value = item.publisher[1];
-        $('count').value = item.count[1];
+        $('#title').value = item.title[1];
+        $('#volume').value = item.volume[1];
+        $('#comicNum').value = item.comicNum[1];
+        $('#pubDate').value = item.pubDate[1];
+        $('#groups').value = item.publisher[1];
+        $('#count').value = item.count[1];
         
-        $('comicFave').value = item.comicFave[1];
-        $('notes').value = item.notes[1];
-        $('penciler').value = item.penciler[1];
+        $('#comicFave').value = item.comicFave[1];
+        $('#notes').value = item.notes[1];
+        $('#penciler').value = item.penciler[1];
         
-        $('pencilFave').value = item.pencilFave[1];
-        $('writer').value = item.group[1];
+        $('#pencilFave').value = item.pencilFave[1];
+        $('#writer').value = item.group[1];
         
-        $('writerFave').value = item.writerFave[1];
-        $('oPrice').value = item.oPrice[1];
-        $('cValue').value = item.cValue[1];
+        $('#writerFave').value = item.writerFave[1];
+        $('#oPrice').value = item.oPrice[1];
+        $('#cValue').value = item.cValue[1];
         
         if(item.comicFave[1] == "Yes"){
-            $('comicFave').setAttribute("checked", "checked");
+            $('#comicFave').setAttribute("checked", "checked");
         }
         if(item.pencilFave[1] == "Yes"){
-            $('pencilFave').setAttribute("checked", "checked");
+            $('#pencilFave').setAttribute("checked", "checked");
         }
         if(item.writerFave[1] == "Yes"){
-            $('writerFave').setAttribute("checked", "checked");
+            $('#writerFave').setAttribute("checked", "checked");
         }
         //Remove listener from the save button
         save.removeEventListener("click", storeData);
         //change submit button value to say "Edit Button"
-        $('submita').value = "Edit Comic";
-        var editSubmit = $('submita');
+        $('#submita').value = "Edit Comic";
+        var editSubmit = $('#submita');
         //save the key value from this function as a property of the editSubmit event
         //so we can use that value to save the data that we edited
         editSubmit.addEventListener("click", validate);
@@ -428,11 +430,11 @@ window.addEventListener("DOMContentLoaded", function () {
         function validate(e){
         
         //define elements that we want to check
-        var getTitle = $('title');
-        var getVolume = $('volume');
-        var getComicNum = $('comicNum');
-        var getPubDate = $('pubDate');
-        var getPublisher = ('publisher');
+        var getTitle = $('#title');
+        var getVolume = $('#volume');
+        var getComicNum = $('#comicNum');
+        var getPubDate = $('#pubDate');
+        var getPublisher = $('#publisher');
         
         //reset the error messages
         errMsg.innerHTML = "";
@@ -473,7 +475,7 @@ window.addEventListener("DOMContentLoaded", function () {
         //If there are any errors, display them on the screen.
         if(messageAry.length >= 1){
             for(var i = 0, j = messageAry.length; i < j; i++){
-                var txt = document.createElement('li');
+                var txt = $.create('li');
                 txt.innerHTML = messageAry[i];
                 errMsg.appendChild(txt);
             }
@@ -486,7 +488,7 @@ window.addEventListener("DOMContentLoaded", function () {
     //Variable defaults
     var contactGroups = ["---Choose A Publisher---", "MARVEL", "DC", "Image", "Dark_Horse", "Full_Bleed", "Other"],
     comicFaveValue = "No",
-    errMsg = $('errors');
+    errMsg = $('#errors');
     
     ;
     makeCats();
@@ -494,11 +496,11 @@ window.addEventListener("DOMContentLoaded", function () {
     //getData();
     
     //Set Link & Submit Click Events
-    var displayLink = $('displayLink');
+    var displayLink = $('#displayLink');
     displayLink.addEventListener("click", getData);
-    var clearLink = $("clear");
+    var clearLink = $("#clear");
     clearLink.addEventListener("click", clearLocal);
-    var save = $("submita");
+    var save = $("#submita");
     save.addEventListener("click", storeData);
     
 
