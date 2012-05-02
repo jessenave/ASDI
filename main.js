@@ -130,17 +130,17 @@
 //Wait until the DOM is ready.
 $(document).ready(function () {
     
-        function drawImage(){
-        var can = $("#canvas1");
-        
-        if(can && can.getContext){
-            var drw = can.getContext("2d");
-            if(drw){
-                var img1 = $("#hero");
-                drw.drawImage(img1, 0,0);
-            }
-        }
-    }
+//        function drawImage(){
+//        var can = $("#canvas1");
+//
+//        if(can && can.getContext){
+//            var drw = can.getContext("2d");
+//            if(drw){
+//                var img1 = $("#hero");
+//                drw.drawImage(img1, 0,0);
+//            }
+//        }
+//    }
 
     
     //getElementById Function
@@ -153,14 +153,14 @@ $(document).ready(function () {
     function makeCats(){
         var formTag = $("form"),//formTag is an array of all the form tags. (because we used getElementsByTagName (plural))
             selectLi = $("#select"),
-            makeSelect = $.create('select');
-            makeSelect.setAttribute("id", "groups");
+            makeSelect = $.create('select');       // $('<select></select>')
+            makeSelect.setAttribute("id", "groups");    // makeSelect.attr("id", "groups");
         for(var i = 0, j = contactGroups.length; i<j; i++){
             var makeOption = $.create("option");
             var optText = contactGroups[i];
             makeOption.setAttribute("value", optText);
-            makeOption.innerHTML = optText;
-            makeSelect.appendChild(makeOption);
+            makeOption.innerHTML = optText;  // .html
+            makeSelect.appendChild(makeOption);    // .append
         }
         selectLi.appendChild(makeSelect);
     }
