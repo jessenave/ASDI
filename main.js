@@ -153,7 +153,7 @@ window.addEventListener("DOMContentLoaded", function () {
     
     //Create select field element and populate with options
     function makeCats(){
-        var formTag = document.getElementsByTagName("form"),//formTag is an array of all the form tags. (because we used getElementsByTagName (plural))
+        var formTag = document.getElementsByTagName("form"),//formTag is an array of all the form tags(because we used getElementsByTagName (plural))
             selectLi = $("select"),
             makeSelect = document.createElement('select');
             makeSelect.setAttribute("id", "groups");
