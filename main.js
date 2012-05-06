@@ -146,8 +146,28 @@ $(document).ready(function () {
 
 /*------------------------------------------------------------------------*/
 
+
+    //json object's url
+    var url = "data/data.json";
+    var title= $("#title1"),
+    volume= $("#volume1"),
+    comicNum= $("#comicNum1"),
+    pubDate= $("#pubDate1"),
+    publisher= $("#publisher1"),
+    ammount= $("#ammount1"),
+    favorite= $("#fav1"),
+    notes= $("#notes1");
+    
 $("#buttonJson").click(function(){
     
+    $.getJSON(url, function(json){
+        
+        $.each(json.results, function(num, item){
+            
+            
+            
+            });
+        });
     });
 
 $("#buttonXML").click(function(){
