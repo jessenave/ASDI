@@ -129,7 +129,6 @@
 
 //Wait until the DOM is ready.
 $(document).ready(function () {
-    
 //        function drawImage(){
 //        var can = $("#canvas1");
 //
@@ -161,15 +160,9 @@ $(document).ready(function () {
     notes= $("#notes1");
     
 $("#buttonJson").on("click",function(event){
+
     $.get('comic1.html');
-    //$.getJSON(url, function(json){
-        
-        //$.each(json.results, function(num, item){
-            
-            
-            
-           // });
-      //  });
+
     });
 
 $("#buttonXML").on(function(){
