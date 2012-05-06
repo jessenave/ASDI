@@ -7,7 +7,7 @@
 
 //$(document).ready(function(){
     
-    
+ /*   
     function showValue(newValue){
         document.getElementById("range").innerHTML = newValue;
     }
@@ -127,11 +127,11 @@
         field.style.backgroundColor = "#fff";
     }
     
-
+*/
 
 //Wait until the DOM is ready.
 window.addEventListener("DOMContentLoaded", function () {
-    
+   /* 
         function drawImage(){
         var can = document.getElementById("canvas1");
         
@@ -144,7 +144,7 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    
+   */
     //getElementById Function
     function $(x){
     var theElement = document.getElementById(x);
