@@ -129,7 +129,6 @@
 
 //Wait until the DOM is ready.
 $(document).ready(function () {
-    console.log("page is loaded");
 //        function drawImage(){
 //        var can = $("#canvas1");
 //
@@ -146,13 +145,31 @@ $(document).ready(function () {
 
 /*------------------------------------------------------------------------*/
 
-$("#buttonJson").load('comic1.html');
 
-$("#buttonXML").click(function(){
+    //json object's url
+    var url = "data/data.json";
+    
+    //items to be changed by json values
+    var title= $("#title1"),
+    volume= $("#volume1"),
+    comicNum= $("#comicNum1"),
+    pubDate= $("#pubDate1"),
+    publisher= $("#publisher1"),
+    ammount= $("#ammount1"),
+    favorite= $("#fav1"),
+    notes= $("#notes1");
+    
+$("#buttonJson").on("click",function(event){
+
+    $.get('comic1.html');
+
+    });
+
+$("#buttonXML").on(function(){
     
     });
 
-$("#buttonCSV").click(function(){
+$("#buttonCSV").on(function(){
     
     });
 
@@ -169,7 +186,7 @@ $("#buttonCSV").click(function(){
     function makeCats(){
         var formTag = $("form"),//formTag is an array of all the form tags. (because we used getElementsByTagName (plural))
             selectLi = $("#select"),
-            makeSelect = $.('<select></select>');       // $('<select></select>')
+            makeSelect = $('<select></select>');       // $('<select></select>')
             makeSelect.attr("id", "groups");    // makeSelect.attr("id", "groups");
         for(var i = 0, j = contactGroups.length; i<j; i++){
             var makeOption = $.create("option");
