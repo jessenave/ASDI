@@ -36,7 +36,7 @@ $("#buttonJson").click(function(){
     
     console.log('clicked');
     
-    var myData = $.getJSON('data/data.json', function(success){
+    var myData = $.getJSON(url, function(success){
         
         console.log('success');
             
