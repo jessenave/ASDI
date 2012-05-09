@@ -1,11 +1,11 @@
-<!DOCTYPE html><!doctype html>
+<!DOCTYPE html>
 <!-- Simple comic book inventory app -->
 <!--Author: Jesse Nave-->
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta description="Comic book inventory list.">
-        <meta name="author" content="SitePoint">
+        <meta charset="utf-8"/>
+        <meta description="Comic book inventory list."/>
+        <meta name="author" content="SitePoint"/>
         <meta keywords="comic, books, collection"/>
         <meta name="robots" content="index, follow"/>
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
@@ -15,6 +15,8 @@
         <title>COMIC BOOK INVENTORY</title>
     </head>
     <body style="background-color:orange">
+        
+        <div data-role=page id="page1">
         <h1>Comic Book Inventory</h1>
         <form method= "Link" action="addItem.html" method="post" id="contactForm">
             <fieldset id="reg">
@@ -23,8 +25,8 @@
                     <li><label id="words" for="addComic">Keep your comic book inventory with you!</label></li>
                     <button type="button" id="button" name="" value="Save Comic" class="css3button" onClick="parent.location='addItem.html'">Add Comic</button>
 		    <button type="button" id="buttonJson" name="" value="Json" class="css3button">Json</button>
-		    <button type="button" id="buttonXML" name="" value="XML" class="css3button" onClick="parent.location='addItem.html'">XML</button>
-		    <button type="button" id="buttonCSV" name="" value="CSV" class="css3button" onClick="parent.location='addItem.html'">CSV</button>
+		    <button type="button" id="buttonXML" name="" value="XML" class="css3button" onClick="parent.location='comic1.html'">XML</button>
+		    <button type="button" id="buttonCSV" name="" value="CSV" class="css3button" onClick="parent.location='comic1.html'">CSV</button>
                 </ul>
                 <img id="hero" src="super_hero1.png" width="200" height="300"/>
                 <ul id="je">
@@ -52,7 +54,10 @@
                 </nav>
             </ul>
         </form>
+        </div>
+        
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
+<!------>

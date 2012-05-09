@@ -1,134 +1,7 @@
-/*
-    Activity 1
-    Visual Frameworks (VFW)
-    Mobile User Interface
-    Author: Jesse Nave
-*/
-
-/*
-    function showValue(newValue){
-        document.getElementById("range").innerHTML = newValue;
-    }
-
-    function styleField(){
-        
-        var field = document.getElementById("title");
-        field.style.backgroundColor = "#ffb";
-    }
-    //styleField();
-    
-    function styleField2(){
-        
-        var field = document.getElementById("volume");
-        field.style.backgroundColor = "#ffb";
-    }
-    //styleField2();
-    
-    function unStyleField(){
-        
-        var field = document.getElementById("title");
-        field.style.backgroundColor = "#fff";
-    }
-    //unStyleField();
-    
-    function unStyleField2(){
-        
-        var field = document.getElementById("volume");
-        field.style.backgroundColor = "#fff";
-    }
-    
-    function styleField3(){
-        
-        var field = document.getElementById("comicNum");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField3(){
-        
-        var field = document.getElementById("comicNum");
-        field.style.backgroundColor = "#fff";
-    }
-    
-    function styleField4(){
-        
-        var field = document.getElementById("pubDate");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField4(){
-        
-        var field = document.getElementById("pubDate");
-        field.style.backgroundColor = "#fff";
-    }
-    
-    function styleField5(){
-        
-        var field = document.getElementById("notes");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField5(){
-        
-        var field = document.getElementById("notes");
-        field.style.backgroundColor = "#fff";
-    }
-    function styleField6(){
-        
-        var field = document.getElementById("penciler");
-        field.setAttribute("value", "");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField6(){
-        
-        var field = document.getElementById("penciler");
-        field.setAttribute("value", "unknown");
-        field.style.backgroundColor = "#fff";
-    }
-    function styleField7(){
-        
-        var field = document.getElementById("writer");
-        field.setAttribute("value", "");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField7(){
-        
-        var field = document.getElementById("writer");
-        field.setAttribute("value", "unknown");
-        field.style.backgroundColor = "#fff";
-    }
-    function styleField8(){
-        
-        var field = document.getElementById("oPrice");
-        field.setAttribute("value", "");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField8(){
-        
-        var field = document.getElementById("oPrice");
-        field.setAttribute("value", "unknown");
-        field.style.backgroundColor = "#fff";
-    }
-    function styleField9(){
-        
-        var field = document.getElementById("cValue");
-        field.setAttribute("value", "");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField9(){
-        
-        var field = document.getElementById("cValue");
-        field.setAttribute("value", "unknown");
-        field.style.backgroundColor = "#fff";
-    }
-    
-*/
-
 //Wait until the DOM is ready.
 $(document).ready(function () {
+    
+    console.log('loaded');
 //        function drawImage(){
 //        var can = $("#canvas1");
 //
@@ -159,10 +32,16 @@ $(document).ready(function () {
     favorite= $("#fav1"),
     notes= $("#notes1");
     
-$("#buttonJson").on("click",function(event){
-
-    $.get('comic1.html');
-
+$("#buttonJson").click(function(){
+    
+    console.log('clicked');
+    
+    var myData = $.getJSON(url, function(success){
+        
+        console.log('success');
+        });
+    console.log(myData);
+    $(this).load('comic1.html');    
     });
 
 $("#buttonXML").on(function(){
@@ -189,7 +68,7 @@ $("#buttonCSV").on(function(){
             makeSelect = $('<select></select>');       // $('<select></select>')
             makeSelect.attr("id", "groups");    // makeSelect.attr("id", "groups");
         for(var i = 0, j = contactGroups.length; i<j; i++){
-            var makeOption = $.create("option");
+            var makeOption = $("option");
             var optText = contactGroups[i];
             makeOption.attr("value", optText);
             makeOption.html = optText;  // .html
@@ -295,25 +174,25 @@ $("#buttonCSV").on(function(){
             alert("No comics saved yet, so default data was added.");
         }
         //write data from local storage to browser
-        var makeDiv = $.create('div');
+        var makeDiv = $('div');
         makeDiv.attr("id", "items");
         var makeList = $.create('ul');
         makeDiv.append(makeList);
         $.body.append(makeDiv);
         $('#items').style.display = "block";
         for(var i = 0, len=localStorage.length; i<len; i++){
-            var makeli = $.create("li");
-            var linksLi = $.create("li");
+            var makeli = $("li");
+            var linksLi = $("li");
             makeList.append(makeli);
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
             //convert the string from local storage value back to an object by using JSON.parse
             var obj = JSON.parse(value);
-            var makeSublist = $.create('ul');
+            var makeSublist = $('ul');
             makeli.append(makeSublist);
             //getImage(obj.groups[1], makeSublist);
             for(var n in obj){
-                var makeSubli = $.create("li");
+                var makeSubli = $("li");
                 makeSublist.append(makeSubli);
                 var optSubText = obj[n][0] + " " + obj[n] [1];
                 makeSubli.html = optSubText;
@@ -367,7 +246,7 @@ $("#buttonCSV").on(function(){
     function makeItemLinks(key, linksLi){
         
         //add edit single item link.
-        var editLink = $.create('a');
+        var editLink = $('a');
         editLink.href = "#";
         editLink.key = key;
         var editText = "Edit Comic";
@@ -376,11 +255,11 @@ $("#buttonCSV").on(function(){
         linksLi.append(editLink);
         
         //add line break
-        var breakTag = $.create('br');
+        var breakTag = $('br');
         linksLi.append(breakTag);
         
         //add delete single item link
-        var deleteLink = $.create('a');
+        var deleteLink = $('a');
         deleteLink.href = "#";
         deleteLink.key = key;
         var deleteText = "Delete Comic";
@@ -508,7 +387,7 @@ $("#buttonCSV").on(function(){
         //If there are any errors, display them on the screen.
         if(messageAry.length >= 1){
             for(var i = 0, j = messageAry.length; i < j; i++){
-                var txt = $.create('li');
+                var txt = $('li');
                 txt.html = messageAry[i];
                 errMsg.append(txt);
             }
@@ -530,11 +409,17 @@ $("#buttonCSV").on(function(){
     
     //Set Link & Submit Click Events
     var displayLink = $('#displayLink');
-    displayLink.addEventListener("click", getData);
+    $("#displayLink").click(function(){
+        $('#displayLink');
+        });
     var clearLink = $("#clear");
-    clearLink.addEventListener("click", clearLocal);
+    $("#clearLink").click(function(){
+        $('#clearLink');
+        });
     var save = $("#submita");
-    save.addEventListener("click", storeData);
+    $("#submita").click(function(){
+        $('#submita');
+        });
     
 
 });
