@@ -39,7 +39,6 @@ $("#buttonJson").click(function(){
     var myData = $.getJSON(url, function(success){
         
         console.log('success');
-            
         });
     $(this).load('comic1.html');    
     });
@@ -68,7 +67,7 @@ $("#buttonCSV").on(function(){
             makeSelect = $('<select></select>');       // $('<select></select>')
             makeSelect.attr("id", "groups");    // makeSelect.attr("id", "groups");
         for(var i = 0, j = contactGroups.length; i<j; i++){
-            var makeOption = $.create("option");
+            var makeOption = $("option");
             var optText = contactGroups[i];
             makeOption.attr("value", optText);
             makeOption.html = optText;  // .html
@@ -174,25 +173,25 @@ $("#buttonCSV").on(function(){
             alert("No comics saved yet, so default data was added.");
         }
         //write data from local storage to browser
-        var makeDiv = $.create('div');
+        var makeDiv = $('div');
         makeDiv.attr("id", "items");
         var makeList = $.create('ul');
         makeDiv.append(makeList);
         $.body.append(makeDiv);
         $('#items').style.display = "block";
         for(var i = 0, len=localStorage.length; i<len; i++){
-            var makeli = $.create("li");
-            var linksLi = $.create("li");
+            var makeli = $("li");
+            var linksLi = $("li");
             makeList.append(makeli);
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
             //convert the string from local storage value back to an object by using JSON.parse
             var obj = JSON.parse(value);
-            var makeSublist = $.create('ul');
+            var makeSublist = $('ul');
             makeli.append(makeSublist);
             //getImage(obj.groups[1], makeSublist);
             for(var n in obj){
-                var makeSubli = $.create("li");
+                var makeSubli = $("li");
                 makeSublist.append(makeSubli);
                 var optSubText = obj[n][0] + " " + obj[n] [1];
                 makeSubli.html = optSubText;
@@ -246,7 +245,7 @@ $("#buttonCSV").on(function(){
     function makeItemLinks(key, linksLi){
         
         //add edit single item link.
-        var editLink = $.create('a');
+        var editLink = $('a');
         editLink.href = "#";
         editLink.key = key;
         var editText = "Edit Comic";
@@ -255,11 +254,11 @@ $("#buttonCSV").on(function(){
         linksLi.append(editLink);
         
         //add line break
-        var breakTag = $.create('br');
+        var breakTag = $('br');
         linksLi.append(breakTag);
         
         //add delete single item link
-        var deleteLink = $.create('a');
+        var deleteLink = $('a');
         deleteLink.href = "#";
         deleteLink.key = key;
         var deleteText = "Delete Comic";
@@ -387,7 +386,7 @@ $("#buttonCSV").on(function(){
         //If there are any errors, display them on the screen.
         if(messageAry.length >= 1){
             for(var i = 0, j = messageAry.length; i < j; i++){
-                var txt = $.create('li');
+                var txt = $('li');
                 txt.html = messageAry[i];
                 errMsg.append(txt);
             }
@@ -409,11 +408,17 @@ $("#buttonCSV").on(function(){
     
     //Set Link & Submit Click Events
     var displayLink = $('#displayLink');
-    displayLink.addEventListener("click", getData);
+    $("#displayLink").click(function(){
+        $('#displayLink');
+        });
     var clearLink = $("#clear");
-    clearLink.addEventListener("click", clearLocal);
+    $("#clearLink").click(function(){
+        $('#clearLink');
+        });
     var save = $("#submita");
-    save.addEventListener("click", storeData);
+    $("#submita").click(function(){
+        $('#submita');
+        });
     
 
 });
