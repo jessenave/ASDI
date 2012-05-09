@@ -161,7 +161,7 @@ $(document).ready(function () {
     
 $("#buttonJson").on("click",function(event){
 
-    $.get('comic1.html');
+    $.load('comic1.html');
 
     });
 
