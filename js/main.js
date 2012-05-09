@@ -40,6 +40,7 @@ $("#buttonJson").click(function(){
         
         console.log('success');
         });
+    console.log(myData);
     $(this).load('comic1.html');    
     });
 
