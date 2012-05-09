@@ -1,132 +1,3 @@
-/*
-    Activity 1
-    Visual Frameworks (VFW)
-    Mobile User Interface
-    Author: Jesse Nave
-*/
-
-/*
-    function showValue(newValue){
-        document.getElementById("range").innerHTML = newValue;
-    }
-
-    function styleField(){
-        
-        var field = document.getElementById("title");
-        field.style.backgroundColor = "#ffb";
-    }
-    //styleField();
-    
-    function styleField2(){
-        
-        var field = document.getElementById("volume");
-        field.style.backgroundColor = "#ffb";
-    }
-    //styleField2();
-    
-    function unStyleField(){
-        
-        var field = document.getElementById("title");
-        field.style.backgroundColor = "#fff";
-    }
-    //unStyleField();
-    
-    function unStyleField2(){
-        
-        var field = document.getElementById("volume");
-        field.style.backgroundColor = "#fff";
-    }
-    
-    function styleField3(){
-        
-        var field = document.getElementById("comicNum");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField3(){
-        
-        var field = document.getElementById("comicNum");
-        field.style.backgroundColor = "#fff";
-    }
-    
-    function styleField4(){
-        
-        var field = document.getElementById("pubDate");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField4(){
-        
-        var field = document.getElementById("pubDate");
-        field.style.backgroundColor = "#fff";
-    }
-    
-    function styleField5(){
-        
-        var field = document.getElementById("notes");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField5(){
-        
-        var field = document.getElementById("notes");
-        field.style.backgroundColor = "#fff";
-    }
-    function styleField6(){
-        
-        var field = document.getElementById("penciler");
-        field.setAttribute("value", "");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField6(){
-        
-        var field = document.getElementById("penciler");
-        field.setAttribute("value", "unknown");
-        field.style.backgroundColor = "#fff";
-    }
-    function styleField7(){
-        
-        var field = document.getElementById("writer");
-        field.setAttribute("value", "");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField7(){
-        
-        var field = document.getElementById("writer");
-        field.setAttribute("value", "unknown");
-        field.style.backgroundColor = "#fff";
-    }
-    function styleField8(){
-        
-        var field = document.getElementById("oPrice");
-        field.setAttribute("value", "");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField8(){
-        
-        var field = document.getElementById("oPrice");
-        field.setAttribute("value", "unknown");
-        field.style.backgroundColor = "#fff";
-    }
-    function styleField9(){
-        
-        var field = document.getElementById("cValue");
-        field.setAttribute("value", "");
-        field.style.backgroundColor = "#ffb";
-    }
-    
-    function unStyleField9(){
-        
-        var field = document.getElementById("cValue");
-        field.setAttribute("value", "unknown");
-        field.style.backgroundColor = "#fff";
-    }
-    
-*/
-
 //Wait until the DOM is ready.
 $(document).ready(function () {
     
@@ -152,7 +23,7 @@ $(document).ready(function () {
     var url = "data/data.json";
     
     //items to be changed by json values
-    var title= $("#tite"),
+    var title= $("#title1"),
     volume= $("#volume1"),
     comicNum= $("#comicNum1"),
     pubDate= $("#pubDate1"),
@@ -164,8 +35,13 @@ $(document).ready(function () {
 $("#buttonJson").click(function(){
     
     console.log('clicked');
-    $(this).load('comic1.html');
-
+    
+    var myData = $.getJSON('data/data.json', function(success){
+        
+        console.log('success');
+            
+        });
+    $(this).load('comic1.html');    
     });
 
 $("#buttonXML").on(function(){
