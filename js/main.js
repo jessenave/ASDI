@@ -129,6 +129,8 @@
 
 //Wait until the DOM is ready.
 $(document).ready(function () {
+    
+    console.log('loaded');
 //        function drawImage(){
 //        var can = $("#canvas1");
 //
@@ -150,7 +152,7 @@ $(document).ready(function () {
     var url = "data/data.json";
     
     //items to be changed by json values
-    var title= $("#title1"),
+    var title= $("#tite"),
     volume= $("#volume1"),
     comicNum= $("#comicNum1"),
     pubDate= $("#pubDate1"),
@@ -159,9 +161,10 @@ $(document).ready(function () {
     favorite= $("#fav1"),
     notes= $("#notes1");
     
-$("#buttonJson").on("click",function(event){
-
-    $.load('comic1.html');
+$("#buttonJson").click(function(){
+    
+    console.log('clicked');
+    $(this).load('comic.html');
 
     });
 
