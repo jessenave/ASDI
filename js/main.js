@@ -34,7 +34,7 @@ $("#buttonJson").click(function(){
     	$('ul').empty();
     	
         //items to be changed by json values
-        var title= $(data.title),
+        var title= $.parseJSON(data.title),
         volume= $(data.volume),
         comicNum= $(data.issue),
         pubDate= $(data.pubDate),
