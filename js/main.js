@@ -70,10 +70,40 @@ $("#buttonXML").click(function(){
     
     console.log("xml was clicked");
     
-    var xml = $(data/data.xml),
-    xmlDoc = $.parseXML(xml),
-    $xml = $(xmlDoc),
-    $title = $xml.find("title");
+    $('ul').empty();
+    
+    $.get("data/data.xml",{},function(xml){
+        
+        $('comic1', xml).each(function(i){
+            
+            var comicT = $(this).find("title").text();
+            var comicV = $(this).find("volume").text();
+            var comicN = $(this).find("issue").text();
+            var comicPD = $(this).find("pubDate").text();
+            var comicP = $(this).find("publisher").text();
+            var comicA = $(this).find("ammount").text();
+            var comicF = $(this).find("favorite").text();
+            var comicN = $(this).find("notes").text();
+            
+            console.log(comicT);
+            console.log(comicV);
+            console.log(comicN);
+            console.log(comicPD);
+            console.log(comicP);
+            console.log(comicA);
+            console.log(comicF);
+            console.log(comicN);
+            
+            $('ul').append('<p>'+comicT+'</p>');
+            $('ul').append('<p>'+comicV+'</p>');
+            $('ul').append('<p>'+comicN+'</p>');
+            $('ul').append('<p>'+comicPD+'</p>');
+            $('ul').append('<p>'+comicP+'</p>');
+            $('ul').append('<p>'+comicA+'</p>');
+            $('ul').append('<p>'+comicF+'</p>');
+            $('ul').append('<p>'+comicN+'</p>');
+        });
+    });
     
     
     });
