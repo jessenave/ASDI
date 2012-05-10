@@ -1,4 +1,4 @@
-{"comic1":[ {
+{
                 "title": ["Title: ", "Default Comic"],
                 "volume": ["Volume # ", "1"],
                 "issue": ["Comic # ", "100"],
@@ -7,6 +7,5 @@
                 "ammount": ["Ammount: ", "1"],
                 "favorite": ["Favorite? ", "Yes"],
                 "notes": ["Notes: ", "This is the default comic book."]
-                }
-       ]
+ 
 }

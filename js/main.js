@@ -22,25 +22,46 @@ $(document).ready(function () {
     //json object's url
     var url = "data/data.json";
     
-    //items to be changed by json values
-    var title= $("#title1"),
-    volume= $("#volume1"),
-    comicNum= $("#comicNum1"),
-    pubDate= $("#pubDate1"),
-    publisher= $("#publisher1"),
-    ammount= $("#ammount1"),
-    favorite= $("#fav1"),
-    notes= $("#notes1");
     
 $("#buttonJson").click(function(){
     
     console.log('clicked');
     
-    var myData = $.getJSON(url, function(success){
+    var myData = $.getJSON(url, function(data){
+    	
+    	//this does work
+    	console.log(data.title);
+    	
+    	
+    	//this does not work
+    	/*
+    	$.each(data, function(key, value){
+    		
+    		console.log(value.title);
+    		
+    	});
+        */
+    	
+    	$('ul').empty();
+    	
+        //items to be changed by json values
+        var title= $(data.title),
+        volume= $(data.volume),
+        comicNum= $(data.issue),
+        pubDate= $(data.pubDate),
+        publisher= $(data.publisher),
+        ammount= $(data.ammount),
+        favorite= $(data.favorite),
+        notes= $(data.notes);
         
+        console.log(title, volume, comicNum, pubDate, publisher, ammount, favorite, notes);
+
+        $('ul').append(data.title);
+        
+    	//$('ul').append(title, volume, comicNum, pubDate, publisher, ammount, favorite, notes);
+    	
         console.log('success');
         });
-    console.log(myData);
     $(this).load('comic1.html');    
     });
 
