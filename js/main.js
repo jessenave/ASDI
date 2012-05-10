@@ -2,53 +2,113 @@
 $(document).ready(function () {
     
     console.log('loaded');
-//        function drawImage(){
-//        var can = $("#canvas1");
-//
-//        if(can && can.getContext){
-//            var drw = can.getContext("2d");
-//            if(drw){
-//                var img1 = $("#hero");
-//                drw.drawImage(img1, 0,0);
-//            }
-//        }
-//    }
 
 //get data in three different formats form external files
 
 /*------------------------------------------------------------------------*/
 
 
-    //json object's url
+    //json object's url.
     var url = "data/data.json";
     
-    //items to be changed by json values
-    var title= $("#title1"),
-    volume= $("#volume1"),
-    comicNum= $("#comicNum1"),
-    pubDate= $("#pubDate1"),
-    publisher= $("#publisher1"),
-    ammount= $("#ammount1"),
-    favorite= $("#fav1"),
-    notes= $("#notes1");
     
 $("#buttonJson").click(function(){
     
     console.log('clicked');
     
-    var myData = $.getJSON(url, function(success){
+    var myData = $.getJSON(url, function(data){
+    	
+    	//this does work
+    	console.log(data.title);
+    	
+    	
+    	//this does not work
+    	/*
+    	$.each(data, function(key, value){
+    		
+    		console.log(value.title);
+    		
+    	});
+        */
+    	
+    	$('ul').empty();
+    	
+        //items to be changed by json values
+        var title= $(data.title),
+        volume= $(data.volume),
+        comicNum= $(data.issue),
+        pubDate= $(data.pubDate),
+        publisher= $(data.publisher),
+        ammount= $(data.ammount),
+        favorite= $(data.favorite),
+        notes= $(data.notes);
         
+        console.log(title, volume, comicNum, pubDate, publisher, ammount, favorite, notes);
+        
+        //this works(kinda)
+        $('ul').append('<p>'+JSON.stringify(title)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(volume)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(comicNum)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(pubDate)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(publisher)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(ammount)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(favorite)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(notes)+'</p>');
+        
+        //this does not
+        //$('ul').append(title);
+        
+    	//$('ul').append(title, volume, comicNum, pubDate, publisher, ammount, favorite, notes);
+    	
+        //$('ul').append(JSON.stringify(title));
         console.log('success');
         });
-    console.log(myData);
     $(this).load('comic1.html');    
     });
 
-$("#buttonXML").on(function(){
+$("#buttonXML").click(function(){
+    
+    console.log("xml was clicked");
+    
+    $('ul').empty();
+    
+    $.get("data/data.xml",{},function(xml){
+        
+        $('comic1', xml).each(function(i){
+            
+            var comicT = $(this).find("title").text();
+            var comicV = $(this).find("volume").text();
+            var comicN = $(this).find("issue").text();
+            var comicPD = $(this).find("pubDate").text();
+            var comicP = $(this).find("publisher").text();
+            var comicA = $(this).find("ammount").text();
+            var comicF = $(this).find("favorite").text();
+            var comicN = $(this).find("notes").text();
+            
+            console.log(comicT);
+            console.log(comicV);
+            console.log(comicN);
+            console.log(comicPD);
+            console.log(comicP);
+            console.log(comicA);
+            console.log(comicF);
+            console.log(comicN);
+            
+            $('ul').append('<p>'+comicT+'</p>');
+            $('ul').append('<p>'+comicV+'</p>');
+            $('ul').append('<p>'+comicN+'</p>');
+            $('ul').append('<p>'+comicPD+'</p>');
+            $('ul').append('<p>'+comicP+'</p>');
+            $('ul').append('<p>'+comicA+'</p>');
+            $('ul').append('<p>'+comicF+'</p>');
+            $('ul').append('<p>'+comicN+'</p>');
+        });
+    });
+    
     
     });
 
-$("#buttonCSV").on(function(){
+$("#buttonCSV").click(function(){
     
     });
 
