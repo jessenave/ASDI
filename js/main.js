@@ -55,8 +55,12 @@ $("#buttonJson").click(function(){
         notes= $(data.notes);
         
         console.log(title, volume, comicNum, pubDate, publisher, ammount, favorite, notes);
-
-        $('ul').append(data.title);
+        
+        //this works
+        $('ul').append('<p>'+title+'</p>');
+        
+        //this does not
+        $('ul').append(title);
         
     	//$('ul').append(title, volume, comicNum, pubDate, publisher, ammount, favorite, notes);
     	
