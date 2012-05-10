@@ -2,17 +2,6 @@
 $(document).ready(function () {
     
     console.log('loaded');
-//        function drawImage(){
-//        var can = $("#canvas1");
-//
-//        if(can && can.getContext){
-//            var drw = can.getContext("2d");
-//            if(drw){
-//                var img1 = $("#hero");
-//                drw.drawImage(img1, 0,0);
-//            }
-//        }
-//    }
 
 //get data in three different formats form external files
 
@@ -77,11 +66,19 @@ $("#buttonJson").click(function(){
     $(this).load('comic1.html');    
     });
 
-$("#buttonXML").on(function(){
+$("#buttonXML").click(function(){
+    
+    console.log("xml was clicked");
+    
+    var xml = $(data/data.xml),
+    xmlDoc = $.parseXML(xml),
+    $xml = $(xmlDoc),
+    $title = $xml.find("title");
+    
     
     });
 
-$("#buttonCSV").on(function(){
+$("#buttonCSV").click(function(){
     
     });
 
