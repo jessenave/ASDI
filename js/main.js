@@ -56,14 +56,22 @@ $("#buttonJson").click(function(){
         
         console.log(title, volume, comicNum, pubDate, publisher, ammount, favorite, notes);
         
-        //this works
-        $('ul').append('<p>'+title+'</p>');
+        //this works(kinda)
+        $('ul').append('<p>'+JSON.stringify(title)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(volume)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(comicNum)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(pubDate)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(publisher)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(ammount)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(favorite)+'</p>');
+        $('ul').append('<p>'+JSON.stringify(notes)+'</p>');
         
         //this does not
-        $('ul').append(title);
+        //$('ul').append(title);
         
     	//$('ul').append(title, volume, comicNum, pubDate, publisher, ammount, favorite, notes);
     	
+        //$('ul').append(JSON.stringify(title));
         console.log('success');
         });
     $(this).load('comic1.html');    
